@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DeleteAllBtn from './DeleteAllBtn';
 import Form from './Form';
 import TodoList from './TodoList';
@@ -16,6 +16,27 @@ function App() {
   };
   const [inputText, setInputText] = useState('');
   const [todos, setTodos] = useState(getDataFromLS());
+  const [status, setStatus] = useState('all');
+  const [filteredTodos, setFilteredTodos] = useState([]);
+
+  // function
+  const filterHandler = () => {
+    switch (status) {
+      case 'completed':
+        setFilteredTodos(todos.filter((todo) => todo.completed === true));
+        break;
+      case 'uncompleted':
+        setFilteredTodos(todos.filter((todo) => todo.completed === false));
+        break;
+      default:
+        setFilteredTodos(todos);
+        break;
+    }
+  };
+
+  useEffect(() => {
+    filterHandler();
+  }, [status, todos]);
 
   return (
     <div>
@@ -25,9 +46,14 @@ function App() {
         todos={todos}
         setTodos={setTodos}
         inputText={inputText}
+        setStatus={setStatus}
       />
 
-      <TodoList todos={todos} setTodos={setTodos} />
+      <TodoList
+        todos={todos}
+        filteredTodos={filteredTodos}
+        setTodos={setTodos}
+      />
       <DeleteAllBtn todos={todos} setTodos={setTodos} />
     </div>
   );

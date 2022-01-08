@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-function Form({ setInputText, todos, setTodos, inputText }) {
+function Form({ setInputText, todos, setTodos, inputText, setStatus }) {
   // add data to localstorage;
   useEffect(() => {
     localStorage.setItem('lists', JSON.stringify(todos));
@@ -19,6 +19,10 @@ function Form({ setInputText, todos, setTodos, inputText }) {
     ]);
     setInputText('');
   };
+
+  const selectHandler = (e) => {
+    setStatus(e.target.value);
+  };
   return (
     <div>
       <label htmlFor="add todo">add todo</label>
@@ -31,7 +35,7 @@ function Form({ setInputText, todos, setTodos, inputText }) {
       />
       <button onClick={clickHandler}>add todo</button>
       <div>
-        <select name="todos">
+        <select onChange={selectHandler} name="todos">
           <option value="all">All</option>
           <option value="completed">Completed</option>
           <option value="uncompleted">Uncompleted</option>
