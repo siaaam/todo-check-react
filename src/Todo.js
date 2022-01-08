@@ -22,10 +22,14 @@ function Todo({ text, id, todos, setTodos, completed }) {
     <div>
       <ul>
         <li>
-          <p className={`${completed ? 'completed' : ''}`}>{text}</p>
+          <p className={`${completed ? 'completed' : ''} text`}>{text}</p>
         </li>
-        <button onClick={completeHandler}>completed</button>
-        <button onClick={deleteHandler}>delete</button>
+        <button className="btn btn-complete" onClick={completeHandler}>
+          completed
+        </button>
+        <button className="btn btn-add" onClick={deleteHandler}>
+          delete
+        </button>
       </ul>
     </div>
   );

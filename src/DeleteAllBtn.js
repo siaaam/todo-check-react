@@ -8,7 +8,9 @@ function DeleteAllBtn({ todos, setTodos }) {
 
   return (
     <div>
-      <button onClick={deleteAllHandler}>delete all</button>
+      <button className="btn btn-dlt" onClick={deleteAllHandler}>
+        delete all
+      </button>
     </div>
   );
 }

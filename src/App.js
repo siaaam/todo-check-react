@@ -39,8 +39,8 @@ function App() {
   }, [status, todos]);
 
   return (
-    <div>
-      <h2>this is a simple todo app </h2>
+    <div className="center">
+      <h2 className="heading">Simple Todo Manager</h2>
       <Form
         setInputText={setInputText}
         todos={todos}

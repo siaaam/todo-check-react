@@ -25,7 +25,10 @@ function Form({ setInputText, todos, setTodos, inputText, setStatus }) {
   };
   return (
     <div>
-      <label htmlFor="add todo">add todo</label>
+      <div>
+        <label htmlFor="add todo">add todo :</label>
+      </div>
+
       <input
         value={inputText}
         type="text"
@@ -33,7 +36,13 @@ function Form({ setInputText, todos, setTodos, inputText, setStatus }) {
         id="todo"
         onChange={inputChangeHandler}
       />
-      <button onClick={clickHandler}>add todo</button>
+
+      <div>
+        <button className="btn btn-add" onClick={clickHandler}>
+          add
+        </button>
+      </div>
+
       <div>
         <select onChange={selectHandler} name="todos">
           <option value="all">All</option>

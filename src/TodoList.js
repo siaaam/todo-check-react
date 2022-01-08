@@ -4,7 +4,7 @@ import Todo from './Todo';
 function TodoList({ todos, setTodos, filteredTodos }) {
   return (
     <div>
-      <h1>Your todos goes here</h1>
+      <h2 className="heading">Your Todos Goes Here</h2>
       {filteredTodos.map((todo) => (
         <Todo
           key={todo.id}

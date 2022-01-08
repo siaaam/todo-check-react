@@ -1,3 +1,80 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ddd;
+  font-family: 'Ubuntu', sans-serif;
+}
 .completed {
   text-decoration: line-through;
+}
+.heading {
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #333;
+}
+.center {
+  max-width: 400px;
+  margin: auto;
+}
+label {
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 5px;
+  text-align: center;
+}
+input {
+  padding: 8px;
+  border-radius: 3px;
+  border-style: none;
+  margin: 10px 0;
+}
+
+.btn {
+  border: none;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-family: 'Ubuntu', sans-serif;
+  cursor: pointer;
+}
+
+.btn-add {
+  color: #fff;
+  background: #4f554f;
+}
+.btn-dlt {
+  color: #fff;
+  background: #4f554f;
+  margin-top: 10px;
+}
+.btn-complete {
+  color: #fff;
+  background: #303f30;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.btn:hover {
+  background: #333533;
+}
+
+select {
+  border: none;
+  padding: 10px 10px;
+  margin-top: 10px;
+  border-radius: 3px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.text {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 20px;
+  text-transform: capitalize;
+  margin: 10px 5px;
 }
