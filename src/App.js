@@ -1,22 +1,34 @@
 import React, { useState } from 'react';
-
+import DeleteAllBtn from './DeleteAllBtn';
+import Form from './Form';
+import TodoList from './TodoList';
 import './App.css';
-import Form from './components/Form';
-import TodoList from './components/TodoList';
 
 function App() {
+  //  get data from local storage
+  const getDataFromLS = () => {
+    let list = localStorage.getItem('lists');
+    if (list) {
+      return JSON.parse(localStorage.getItem('lists'));
+    } else {
+      return [];
+    }
+  };
   const [inputText, setInputText] = useState('');
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(getDataFromLS());
+
   return (
     <div>
-      <h2>This is simple todo app</h2>
+      <h2>this is a simple todo app </h2>
       <Form
         setInputText={setInputText}
-        setTodos={setTodos}
         todos={todos}
+        setTodos={setTodos}
         inputText={inputText}
       />
-      <TodoList todos={todos} />
+
+      <TodoList todos={todos} setTodos={setTodos} />
+      <DeleteAllBtn todos={todos} setTodos={setTodos} />
     </div>
   );
 }
